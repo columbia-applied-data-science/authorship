@@ -1,4 +1,4 @@
-General guidelines
+General Guidelines
 ==================
 
 * Don't version data.
@@ -9,26 +9,24 @@ General guidelines
 Data Scheme
 -----------
 
-Somewhere on your computer you should have a 'data' folder. On mine it is
-located at '/home/thomas/Projects/declass/data'. Set an environment variable
-called 'DATA' pointing to the base data directory. For example, I might add the
-line 'export DATA=/home/thomas/Projects/declass/data' to my .bashrc file. Set
-an environment variable called 'ME' to use to differentiate your data in your
-scripts from others. For example, I might put 'export ME=thomas' in my .bashrc
-file.
+Somewhere on your computer you should have a 'data' folder. Mine is located at
+'/home/thomas/Projects/declass/data'. Set an environment variable called 'DATA'
+pointing to the base data directory. For example, I might add the line 'export
+DATA=/home/thomas/Projects/declass/data' to my .bashrc file.
 
-When working on a project I call 'authorship_federalist', I would use the
-following directory structure:
+Since this project is focused on authorship, all data should be kept within an
+'authorship' directory. When working on the Federalist Papers, for example, I
+might use the following directory structure:
 
 ```
 data/
-└── thomas/
-    └── authorship_federalist/
+└── authorship/
+    └── federalist/
         ├── processed/
         └── raw/
 ```
 
-Contents of any raw/ folder should never be modified or deleted. This way,
+Contents of any raw/ folder should never be modified or deleted. This way
 your script will create the same output as everyone else's script.
 
 Example
@@ -41,8 +39,7 @@ lines:
 >>> import os
 
 >>> DATA = os.environ['DATA']
->>> ME = 'thomas'
->>> MYDATA = os.path.join(DATA, ME, 'authorship_federalist')
+>>> MYDATA = os.path.join(DATA, 'authorship', 'federalist')
 >>> PROCESSED = os.path.join(MYDATA, 'processed')
 >>> RAW = os.path.join(MYDATA, 'raw')
 
